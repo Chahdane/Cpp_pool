@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/13 16:49:21 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/13 19:49:18 by achahdan         ###   ########.fr        #
+#    Created: 2022/09/13 19:26:12 by achahdan          #+#    #+#              #
+#    Updated: 2022/09/13 23:12:16 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= megaphone
-SRC		= megaphone.cpp
+NAME	= phonebool
+SRC		= phonebook.cpp
 CC 		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
-#INC	=
+FLAGS	= -Wall -Wextra -Werror
+INC		= phonebook.hpp
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME) 

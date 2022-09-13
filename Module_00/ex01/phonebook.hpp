@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 16:49:39 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/13 19:24:09 by achahdan         ###   ########.fr       */
+/*   Created: 2022/09/13 22:27:47 by achahdan          #+#    #+#             */
+/*   Updated: 2022/09/13 23:50:42 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main(int ac, char **av)
+class Contact
 {
-	if (ac == 1) std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	for (int i = 1; i < ac; i++)
-	{
-		std::string tmp;
-		tmp = av[i];
-		for (int j = 0; j < (int)tmp.length() ; j++)
-			std::cout << (char)toupper(tmp[j]);
-		av[i + 1] ? std::cout << " " : std::cout << std::endl;
-	}
-	return (0);
-}
+    public:
+        std::string first_name;
+        std::string last_name;
+        std::string nick_name;
+        int number;
+        std::string darkest_secret;
+};
+
+class Phonebook
+{
+    public:
+        Contact contacts[8];
+};
+
