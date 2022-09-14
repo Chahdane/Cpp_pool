@@ -6,24 +6,36 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:07:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/13 23:52:55 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:50:41 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <iostream>
 #include <ostream>
 
 int i = 0;
 
-void add(Phonebook fb)
+void	prompt(std::string place_holder, std::string *buffer)
 {
-	Contact cont; 
-	fb.contacts[i] = cont;
+	std::cout << place_holder + ": ";
+	std::getline(std::cin, *buffer);
+	while (*buffer == "")
+	{
+		std::cout << "plese enter a valid " << place_holder << std::endl;
+		std::cout << place_holder + ": ";
+		std::getline(std::cin, *buffer);
+	}
+}
+
+void add(Phonebook *phonebook)
+{ 
+	std::string buffer;
+	prompt("First Name", &buffer);
+	phonebook->contacts[i].setFirstname(buffer);
+	prompt("Last Name", &buffer);
+	phonebook->contacts[i].setLastname(buffer);
 	i++;
-	std::cout << "FIRST NAME : " << std::endl;
-	std::getline(std::cin, cont.first_name);
-	// std::cout << "LAST NAME : " << std::endl;
-	// std::getline(std::cin, cont.last_name);
 }
 
 int	main()
@@ -35,10 +47,17 @@ int	main()
 	{
 		std::cout<<">> ";
 		std::getline(std::cin, buffer);
-		if (buffer != "ADD" && buffer != "SEARCH")
+		if (buffer != "ADD" && buffer != "SEARCH" && buffer != "EXIT")
 			std::cout<<"Command does not exist : try ADD SEARCH EXIT"<<std::endl;
 		else if (buffer == "ADD")
-			add(phonebook);
-		std::cout<<phonebook.contacts[i].first_name << std::endl;
+			add(&phonebook);
+	}
+	std::cout << "->>" << std::endl;
+	int j = 0;
+	while (j < 3)
+	{
+		std::cout << phonebook.contacts[j].getFirstname() << std::endl;
+		std::cout << phonebook.contacts[j].getLastname() << std::endl;
+		j++;
 	}
 }

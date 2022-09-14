@@ -6,12 +6,12 @@
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 19:26:12 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/13 23:12:16 by achahdan         ###   ########.fr        #
+#    Updated: 2022/09/14 21:45:25 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= phonebool
-SRC		= phonebook.cpp
+SRC		= phonebook.cpp contact.cpp
 CC 		= c++
 FLAGS	= -Wall -Wextra -Werror
 INC		= phonebook.hpp
