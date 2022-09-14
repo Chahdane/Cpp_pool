@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:07:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/14 22:50:41 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:55:41 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ void add(Phonebook *phonebook)
 	phonebook->contacts[i].setFirstname(buffer);
 	prompt("Last Name", &buffer);
 	phonebook->contacts[i].setLastname(buffer);
+	prompt("Nickname", &buffer);
+	phonebook->contacts[i].setNickname(buffer);
+	prompt("Number", &buffer);
+	phonebook->contacts[i].setNumber(buffer);
+	prompt("Darkest Secret", &buffer);
+	phonebook->contacts[i].setDarkestSecret(buffer);
 	i++;
 }
 

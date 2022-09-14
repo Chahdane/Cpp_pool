@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 21:44:34 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/14 22:02:58 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:55:31 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Contact::setNickname(std::string nick_name)
 	this->nick_name = nick_name;
 };
 
-void Contact::setNumber(int number)
+void Contact::setNumber(std::string number)
 {
 	this->number = number;
 };
@@ -56,7 +56,7 @@ std::string Contact::getNickname(void)
     return nick_name;
 }
 
-int Contact::getNumber(void)
+std::string Contact::getNumber(void)
 {
     return number;
 }
