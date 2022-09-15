@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:07:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 01:16:10 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:18:17 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void add(Phonebook *phonebook)
 
 std::string string_modifier(std::string str)
 {
-
 	if (str.length() < 10)
 	{
 		for (int i = str.length(); i < 10; i++)

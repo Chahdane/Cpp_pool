@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/13 19:26:12 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/15 01:18:39 by achahdan         ###   ########.fr        #
+#    Created: 2022/09/15 01:19:57 by achahdan          #+#    #+#              #
+#    Updated: 2022/09/15 02:26:31 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= phonebook
-SRC		= phonebook.cpp contact.cpp
+
+NAME	= acc
+SRC		= tests.cpp Account.cpp
 CC 		= c++
 FLAGS	= -Wall -Wextra -Werror
-INC		= phonebook.hpp
+INC		= Account.hpp
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME) 
