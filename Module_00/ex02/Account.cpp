@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 01:19:54 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 03:16:36 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 04:01:54 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int		Account::_totalNbWithdrawals = 0;
 
 Account::Account( int initial_deposit )
 {
-    std::cout << initial_deposit << std::endl;
+    _accountIndex = Account::_nbAccounts;
+    std::cout << "index:" << _accountIndex << ";amount;" << initial_deposit << ";created" <<std::endl;
+    Account::_nbAccounts++;
 }
 
 Account::~Account()
