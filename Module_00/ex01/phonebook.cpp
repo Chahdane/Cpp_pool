@@ -6,16 +6,13 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:07:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/14 23:39:57 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:16:10 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-#include <iostream>
-#include <ostream>
 
 int G = 0;
-int stop = 0;
 
 void	prompt(std::string place_holder, std::string *buffer)
 {
@@ -45,7 +42,6 @@ void add(Phonebook *phonebook)
 	phonebook->contacts[i].setNumber(buffer);
 	prompt("Darkest Secret", &buffer);
 	phonebook->contacts[i].setDarkestSecret(buffer);
-	phonebook->contacts[i].setIndex(i);
 	G++;
 }
 
@@ -72,11 +68,13 @@ void search(Phonebook *phonebook)
 	j = 0;
 	while (j < G && phonebook->contacts[j].getFirstname() != "")
 	{
-		std::cout << phonebook->contacts[j].getIndex();
+		std::cout<< j;
 		std::cout<< "        |";
 		std::cout << string_modifier(phonebook->contacts[j].getFirstname());
 		std::cout<< "|";
-		std::cout << phonebook->contacts[j].getLastname() << std::endl;
+		std::cout << string_modifier(phonebook->contacts[j].getLastname());
+		std::cout<< "|";
+		std::cout << string_modifier(phonebook->contacts[j].getNickname())<<std::endl;
 		j++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 21:44:34 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/14 23:34:44 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:15:25 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,6 @@ void Contact::setDarkestSecret(std::string darkest_secret)
 	this->darkest_secret = darkest_secret;
 };
 
-void	Contact::setIndex(int index)
-{
-    this->index = index;
-}
-
 // GETTERS:
 
 std::string Contact::getFirstname(void)
@@ -69,9 +64,4 @@ std::string Contact::getNumber(void)
 std::string Contact::getDarkestSecret(void)
 {
     return darkest_secret;
-}
-
-int Contact::getIndex(void)
-{
-    return index;
 }
