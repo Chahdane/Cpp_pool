@@ -1,0 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/15 16:13:33 by achahdan          #+#    #+#              #
+#    Updated: 2022/09/15 16:22:42 by achahdan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	= zombie
+SRC		= main.cpp Zombie.cpp zombieHorde.cpp
+CC 		= c++
+FLAGS	= -Wall -Wextra -Werror
+INC		= Zombie.hpp
+OBJ= $(SRC:.c=.o)
+
+all: $(NAME) 
+
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(SRC) -o $(NAME)
+
+%.o: %.c $(INC)
+		$(CC) $(FLAGS) $< -o $@
+
+clean:
+	rm -rf $(OBJS)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
