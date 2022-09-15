@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 01:19:54 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 04:01:54 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 04:32:11 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		Account::_totalNbWithdrawals = 0;
 
 Account::Account( int initial_deposit )
 {
+    _amount = initial_deposit;
+    _totalAmount  += initial_deposit;
     _accountIndex = Account::_nbAccounts;
     std::cout << "index:" << _accountIndex << ";amount;" << initial_deposit << ";created" <<std::endl;
     Account::_nbAccounts++;
@@ -52,12 +54,15 @@ int	Account::getNbWithdrawals( void )
 
 void	Account::displayAccountsInfos( void )
 {
-    std::cout << "display account" << std::endl;
+    std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" <<
+        _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals<<  std::endl;
 }
 
 void	Account::makeDeposit( int deposit )
 {
-    std::cout << "make deposit" << deposit<< std::endl;
+    _amount += deposit;
+    _totalAmount += deposit;
+    _totalNbDeposits++; 
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
@@ -69,10 +74,20 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 int		Account::checkAmount( void ) const
 {
-    return 555;
+    return _amount;
 }
 
 void	Account::displayStatus( void ) const
 {
-    std::cout << "display status" << std::endl;
+    std::cout << "index :" << _accountIndex << ";amount:" << checkAmount() <<  std::endl;
+    
 }
+
+
+// display account info : [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
+
+// display status : [19920104_091532] index:0;amount:42;deposits:0;withdrawals:0
+
+// make deposit : [19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
+
+// make withdrawal : [19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
