@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:51:09 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 18:58:20 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/15 22:59:16 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ class HumanB
         Weapon *weapon;
     public:
         HumanB(std::string name);
-        void setWeapon(Weapon weapon);
+        void setWeapon(Weapon &weapon);
         void attack();
 };

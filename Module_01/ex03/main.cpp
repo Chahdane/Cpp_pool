@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:51:07 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 18:48:11 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:15:32 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int main()
         bob.attack();
    }
     {
-        Weapon club = Weapon("crude spiked club");
+       Weapon club = Weapon("crude spiked club");
         HumanB jim("Jim");
         jim.setWeapon(club);
         jim.attack();
-        club.setType("some other type of club");
+    club.setType("some other type of club");
         jim.attack();
     }
 }
