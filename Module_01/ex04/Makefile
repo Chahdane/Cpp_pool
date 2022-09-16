@@ -6,11 +6,11 @@
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 14:19:49 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/16 16:44:47 by achahdan         ###   ########.fr        #
+#    Updated: 2022/09/16 19:43:59 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= sed
+NAME	= replace
 SRC		= main.cpp Replace.cpp
 CC 		= c++
 FLAGS	= -Wall -Wextra -Werror
