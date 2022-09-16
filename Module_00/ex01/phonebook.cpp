@@ -6,13 +6,59 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:07:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/15 01:18:17 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/16 23:41:35 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
 int G = 0;
+
+std::string string_modifier(std::string str)
+{
+	if (str.length() < 10)
+	{
+		for (int i = str.length(); i < 10; i++)
+			str+=" ";
+	}
+	else
+	{
+		str.erase(9);
+		str+=".";
+	}
+	return str;
+}
+
+void	search_by_index(Phonebook *phonebook)
+{
+	std::string buffer;
+	std::cout << "Search by index :";
+	std::getline(std::cin, buffer);
+	if (buffer.empty()) return ;
+	if ((int)buffer.find_first_not_of("0123456789") != -1)
+	{
+		std::cout << "NOT A DIGIT" << std::endl;
+		return ;
+	}
+	int index = stoi(buffer);
+	int	j = 0;
+	while (j < G && phonebook->contacts[j].getFirstname() != "")
+	{
+		if (j == index)
+		{
+			std::cout<< j;
+			std::cout<< "        |";
+			std::cout << string_modifier(phonebook->contacts[j].getFirstname());
+			std::cout<< "|";
+			std::cout << string_modifier(phonebook->contacts[j].getLastname());
+			std::cout<< "|";
+			std::cout << string_modifier(phonebook->contacts[j].getNickname())<<std::endl;
+			return;
+		}
+		j++;
+	}
+	std::cout << "Index out of range" << std::endl;
+}
 
 void	prompt(std::string place_holder, std::string *buffer)
 {
@@ -30,8 +76,8 @@ void add(Phonebook *phonebook)
 { 
 	std::string buffer;
 	int i = G;
-	if (G >= 5)
-		i = G % 5;
+	if (G >= 8)
+		i = G % 8;
 	prompt("First Name", &buffer);
 	phonebook->contacts[i].setFirstname(buffer);
 	prompt("Last Name", &buffer);
@@ -45,26 +91,9 @@ void add(Phonebook *phonebook)
 	G++;
 }
 
-std::string string_modifier(std::string str)
-{
-	if (str.length() < 10)
-	{
-		for (int i = str.length(); i < 10; i++)
-			str+=" ";
-	}
-	else
-	{
-		str.erase(9);
-		str+=".";
-	}
-	return str;
-}
-
 void search(Phonebook *phonebook)
 {
-	int	j;
-
-	j = 0;
+	int	j = 0;
 	while (j < G && phonebook->contacts[j].getFirstname() != "")
 	{
 		std::cout<< j;
@@ -76,6 +105,7 @@ void search(Phonebook *phonebook)
 		std::cout << string_modifier(phonebook->contacts[j].getNickname())<<std::endl;
 		j++;
 	}
+	search_by_index(phonebook);
 }
 
 int	main()
@@ -89,6 +119,8 @@ int	main()
 		std::getline(std::cin, buffer);
 		if (buffer != "ADD" && buffer != "SEARCH" && buffer != "EXIT")
 			std::cout<<"Command does not exist : try ADD SEARCH EXIT"<<std::endl;
+		else if (buffer.empty())
+			return 0;
 		else if (buffer == "ADD")
 			add(&phonebook);
 		else
