@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:40:26 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/16 18:26:04 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:38:37 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Replace
     public:
         Replace(std::string filename, std::string str, std::string newstr);
         ~Replace();
-        void    copy();
+        void    copy_and_replace();
         bool    check_errors();
-        void  replace_one_word(std::string &buffer, int index);
+        void    replace_word(std::string &buffer, int index);
 
 };
