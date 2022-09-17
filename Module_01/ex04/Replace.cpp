@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:43:48 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/16 18:40:07 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/17 20:23:15 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,17 @@ void Replace::copy_and_replace()
 {
     std::string buffer;
     int index = -1;
+
     while (!infile.eof())
     {
         std::getline(infile, buffer);
-        index = buffer.find(str);
+        index = buffer.find(str);  
+        if (str == newstr) index = -1;
         while (index >= 0)
         {
             replace_word(buffer, index);
-            index = buffer.find(str);
+            index += newstr.length();
+            index = buffer.find(str, index);
         }
         outfile << buffer << std::endl;
         index = -1;
@@ -48,12 +51,8 @@ void Replace::copy_and_replace()
 
 void  Replace::replace_word(std::string &buffer, int index)
 {
-    std::string tmp;
-    tmp = buffer;
-    buffer.erase(index);
+    buffer.erase(index, str.length()); 
     buffer.insert(index ,newstr);
-    tmp.erase(0, index + str.length());
-    buffer += tmp;
 }
 
 bool    Replace::check_errors()

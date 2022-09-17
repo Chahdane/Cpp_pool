@@ -6,14 +6,14 @@
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/15 16:13:33 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/15 16:22:42 by achahdan         ###   ########.fr        #
+#    Updated: 2022/09/17 20:25:53 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= zombie
 SRC		= main.cpp Zombie.cpp zombieHorde.cpp
 CC 		= c++
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 INC		= Zombie.hpp
 OBJ= $(SRC:.c=.o)
 

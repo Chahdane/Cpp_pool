@@ -6,14 +6,14 @@
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 14:19:49 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/16 19:43:59 by achahdan         ###   ########.fr        #
+#    Updated: 2022/09/17 20:26:07 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= replace
 SRC		= main.cpp Replace.cpp
 CC 		= c++
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 INC	= Replace.hpp
 OBJ= $(SRC:.c=.o)
 
