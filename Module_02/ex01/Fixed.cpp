@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 16:50:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/19 00:58:58 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:19:34 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed()
 Fixed::Fixed(const int number)
 {
     std::cout << "Int constructor called" << std::endl;
-    this->number = number * (1 << bits);
+    this->number = number<<bits;
 }
 
 Fixed::Fixed(const float number)
@@ -57,7 +57,7 @@ float Fixed::toFloat( void ) const
 
 int Fixed::toInt( void ) const
 {
-    return this->number / (1 << bits);
+    return this->number>>bits;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fp)
