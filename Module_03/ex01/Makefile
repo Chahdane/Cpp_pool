@@ -5,17 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/15 01:19:57 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/15 12:42:37 by achahdan         ###   ########.fr        #
+#    Created: 2022/09/20 16:38:05 by achahdan          #+#    #+#              #
+#    Updated: 2022/09/20 16:52:16 by achahdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME	= account
-SRC		= tests.cpp Account.cpp
+NAME	= ClapTrap
+SRC		= main.cpp ClapTrap.cpp
 CC 		= c++
-FLAGS	= -Wall -Wextra -Werror
-INC		= Account.hpp
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+INC		= ClapTrap.hpp
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME) 
