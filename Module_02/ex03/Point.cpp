@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/18 16:21:22 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/19 22:30:56 by achahdan         ###   ########.fr       */
+/*   Created: 2022/09/19 18:20:42 by achahdan          #+#    #+#             */
+/*   Updated: 2022/09/19 22:22:53 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Point.hpp"
+#include "Fixed.hpp"
 
-class Fixed
+Point::Point() : x(0) , y(0)
 {
-    private:
-        int number;
-        static const int bits = 8 ;
-    public:
-        Fixed();
-        Fixed(const Fixed& rhs);
-        Fixed& operator=(const Fixed& rhs);
-        ~Fixed();
-        int getRawBits( void ) const;
-        void setRawBits( int const raw );
-};
+}
 
+Point::Point(float x, float y) : x(x), y(y)
+{
+}
+
+Point::~Point()
+{
+    
+}
+
+int Point::getX() const
+{
+    return x.getNumber();
+}
+int Point::getY() const
+{
+    return y.getNumber();
+}
