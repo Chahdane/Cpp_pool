@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:38:39 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/20 22:19:40 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:27:16 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 		std::string getName();
 		void getStats();
-		void setNmae(std::string name);
 		~ClapTrap();
 };
 

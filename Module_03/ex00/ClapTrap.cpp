@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:38:42 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/20 22:30:10 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:29:58 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Created" << std::endl;
+    name = "Unknown ClapTrap";
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
+    std::cout << name << " Created by Default constructor" << std::endl;
 }
 
-void ClapTrap::setNmae(std::string name)
-{
-    this->name = name;
-}
-
+  
 ClapTrap::ClapTrap(std::string name)
 {
     this->name = name;
@@ -33,7 +33,9 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)
 {
+    std::cout << "Copy constructor for " << name  << " called" << std::endl;
     *this = rhs;
+    
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &rhs)
@@ -42,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &rhs)
     hitPoints = rhs.hitPoints;
     energyPoints = rhs.energyPoints;
     attackDamage = rhs.attackDamage;
-    std::cout << "Created by a copy constructor" << std::endl;
+    std::cout << "Copy assignment operator for " << name << " called" << std::endl;
     return *this;
 }
 

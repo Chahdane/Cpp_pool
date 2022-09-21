@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+// /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
@@ -37,6 +37,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)
 {
+    std::cout << "ClapTrap : copy constructor"<< std::endl;
     *this = rhs;
 }
 
@@ -46,7 +47,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &rhs)
     hitPoints = rhs.hitPoints;
     energyPoints = rhs.energyPoints;
     attackDamage = rhs.attackDamage;
-    std::cout << "ClapTrap [ " << name << " ] Created by a copy constructor" << std::endl;
+    std::cout << "ClapTrap : copy assignment operatot called"<< std::endl;
     return *this;
 }
 

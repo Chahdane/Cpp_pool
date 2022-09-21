@@ -6,9 +6,12 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:38:39 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/21 15:43:45 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:02:14 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
@@ -33,3 +36,4 @@ class ClapTrap
 		~ClapTrap();
 };
 
+#endif
