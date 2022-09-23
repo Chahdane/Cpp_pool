@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:00:22 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/21 18:50:38 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:00:35 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ FragTrap::FragTrap()
 {
     name = "Unknown FragTrap";
     hitPoints = 100;
-    energyPoints = 100;
     attackDamage = 30;
     std::cout << name << " Created by Default constructor" << std::endl;
 }
@@ -25,13 +24,13 @@ FragTrap::FragTrap(std::string name)
 {
     this->name = name;
     hitPoints = 100;
-    energyPoints = 100;
     attackDamage = 30;
     std::cout << name << " Created by derived class constructor (FragTrap)" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& rhs)
 {
+    std::cout << "copy constructor called for FragTrap" << std::endl;
     *this = rhs;
 }
 
@@ -41,13 +40,13 @@ FragTrap& FragTrap::operator=(const FragTrap &rhs)
     hitPoints = rhs.hitPoints;
     energyPoints = rhs.energyPoints;
     attackDamage = rhs.attackDamage;
-    std::cout << "FragTrap [ " << name << " ] Created by a copy constructor" << std::endl;
+    std::cout << "Copy Assignment operator called for FragTrap" << std::endl;
     return *this;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Default desstructor for FragTrap " << name << " called" << std::endl;
+    std::cout << "Default desstructor for FragTrap called" << std::endl;
 }
 
 void FragTrap::guardGate()

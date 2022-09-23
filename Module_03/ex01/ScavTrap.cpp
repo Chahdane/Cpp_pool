@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:00:22 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/21 16:14:33 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:06:49 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ ScavTrap::ScavTrap(std::string name)
 
 ScavTrap::ScavTrap(const ScavTrap& rhs)
 {
+    std::cout << "copy constructor called for ScavTrap" << std::endl;
     *this = rhs;
 }
 
@@ -41,7 +42,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &rhs)
     hitPoints = rhs.hitPoints;
     energyPoints = rhs.energyPoints;
     attackDamage = rhs.attackDamage;
-    std::cout << "ScavTrap [ " << name << " ] Created by a copy constructor" << std::endl;
+    std::cout << "Copy Assignment operator called for ScavTrap"<< std::endl;
     return *this;
 }
 

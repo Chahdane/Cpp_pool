@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:00:22 by achahdan          #+#    #+#             */
-/*   Updated: 2022/09/21 18:34:46 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:59:32 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ FragTrap::FragTrap(std::string name)
 
 FragTrap::FragTrap(const FragTrap& rhs)
 {
+    std::cout << "copy constructor called for FragTrap" << std::endl;
     *this = rhs;
 }
 
@@ -41,7 +42,7 @@ FragTrap& FragTrap::operator=(const FragTrap &rhs)
     hitPoints = rhs.hitPoints;
     energyPoints = rhs.energyPoints;
     attackDamage = rhs.attackDamage;
-    std::cout << "FragTrap [ " << name << " ] Created by a copy constructor" << std::endl;
+    std::cout << "Copy Assignment operator called for FragTrap" << name << std::endl;
     return *this;
 }
 
