@@ -13,9 +13,11 @@ int handle_errors(std::string date, std::string value)
 	if (value == "err:LN")
 		return (std::cout << "Error: too large a number." << std::endl, 1);
 
-	if (date == "err:BI")
+	if (date.find("err:BI") == 0)
+	{
+		date = date.erase(0,6);
 		return (std::cout << "Error: bad input" << " => " << date << std::endl, 1);
-
+	}
 	return 0;
 }
 

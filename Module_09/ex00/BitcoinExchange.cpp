@@ -61,7 +61,7 @@ std::string get_date_from_str(std::string str, bool is_input_file)
 	!is_input_file ? charset = ',' : charset = '|';
 	index = str.find(charset);
 	if ( index == -1)
-		return ("err:BI");
+		return ("err:BI" + str);
 	str =  str.substr(0, str.find(charset));
 	str.erase(str.find_last_not_of(" \t\r\n") + 1);
 	for (int i = 0; i < 10; i++)
@@ -70,7 +70,7 @@ std::string get_date_from_str(std::string str, bool is_input_file)
 			if (str[i] == '-')
 				continue;
 		if (!isdigit(str[i]))
-			return ("err:BI");
+			return ("err:BI" + str);
 		if (i == 5 || i == 6)
 			month += str[i];
 		if (i == 8 || i == 9)
@@ -78,7 +78,7 @@ std::string get_date_from_str(std::string str, bool is_input_file)
 	}
 
 	if (stoi(month) > 12 || stoi(day)> 31)
-		return ("err:BI");
+		return ("err:BI" + str);
 
 	return str;
 }
