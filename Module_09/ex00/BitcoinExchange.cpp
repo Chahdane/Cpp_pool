@@ -63,7 +63,7 @@ std::string get_date_from_str(std::string str, bool is_input_file)
 	if ( index == -1)
 		return ("err:BI");
 	str =  str.substr(0, str.find(charset));
-	
+	str.erase(str.find_last_not_of(" \t\r\n") + 1);
 	for (int i = 0; i < 10; i++)
 	{
 		if (i == 4 || i == 7)

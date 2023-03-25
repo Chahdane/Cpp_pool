@@ -24,3 +24,5 @@ class BitcoinExchange
 		~BitcoinExchange();
 };
 
+std::string get_date_from_str(std::string str, bool is_input_file);
+std::string get_value_from_str(std::string str, bool is_input_file);
