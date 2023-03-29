@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/20 16:38:05 by achahdan          #+#    #+#              #
-#    Updated: 2022/09/22 21:23:59 by achahdan         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME	= DiamondTrap
 SRC		= main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 CC 		= c++
