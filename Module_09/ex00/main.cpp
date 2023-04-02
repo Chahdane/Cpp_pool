@@ -12,7 +12,8 @@ int handle_errors(std::string date, std::string value)
 
 	if (value == "err:LN")
 		return (std::cout << "Error: too large a number." << std::endl, 1);
-
+	if (!value.find("err:BI"))
+		return (std::cout << "Error: blabla" << std::endl, 1);
 	if (date.find("err:BI") == 0)
 	{
 		date = date.erase(0,6);
@@ -52,7 +53,7 @@ int main(int ac, char **av)
 
 	std::map<std::string, std::string> *dt;
 
-	BitcoinExchange data("data.csv", false);
+	BitcoinExchange data("data2.csv", false);
 
 	data.parse_file();
 
