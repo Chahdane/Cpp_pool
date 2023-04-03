@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <iostream>
 #include <sys/time.h>
+#include <ctime>
+
 
 class PmergeMe
 {
@@ -12,6 +14,8 @@ class PmergeMe
 	public:
 		PmergeMe();
 		~PmergeMe();
+		PmergeMe(const PmergeMe &rhs);
+        PmergeMe &operator=(const PmergeMe &rhs);
 		void sort_vec();
 		void sort_deq();
 		void add(int num);

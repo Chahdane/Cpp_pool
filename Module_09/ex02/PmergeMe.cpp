@@ -62,7 +62,7 @@ void merge_insertion_sort(container& nums, int left, int right) {
 template<typename container>
 void print_con(container& nums)
 {
-	for(int i = 0; i < nums.size(); i++)
+	for(size_t i = 0; i < nums.size(); i++)
 	{
 		std::cout << nums[i] << " ";
 		if (i == 9) break;
@@ -75,18 +75,21 @@ void print_con(container& nums)
 
 template<typename container>
 void merge_insert_sort(container& nums, std::string type) {
-	struct timeval start;
-	struct timeval end_t;
-	size_t time;
-	std::cout << "Before: ";
-	print_con(nums);
-	gettimeofday(&start, NULL);
+	if (type == "vector")
+	{
+		std::cout << "Before: ";
+		print_con(nums);
+	}
+	std::clock_t start_time = std::clock();
     merge_insertion_sort(nums, 0, nums.size() - 1);
-	gettimeofday(&end_t, NULL);
-	std::cout << "After: ";
-	print_con(nums);
-	time = ((end_t.tv_sec * 1000000) + end_t.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
-	std::cout << "Time to process a range of " << nums.size() << " elements with std::" + type + ": " << time << " us" << std::endl;
+	std::clock_t end_time = std::clock();
+	double time = (end_time - start_time) / (double)CLOCKS_PER_SEC;
+	if (type == "vector")
+	{
+		std::cout << "After : ";
+		print_con(nums);
+	}
+	std::cout << "Time to process a range of " << nums.size() << " elements with std::" + type + " : " << time * 1000000 << " us" << std::endl;
 
 }
 
@@ -104,6 +107,17 @@ void PmergeMe::sort_deq()
 }
 
 
+PmergeMe::PmergeMe(const PmergeMe &rhs)
+{
+	this->vec = rhs.vec;
+	this->deq = rhs.deq;
+}
 
+PmergeMe & PmergeMe::operator=(const PmergeMe &rhs) 
+{
+    this->vec = rhs.vec;
+	this->deq = rhs.deq;
+    return (*this); 
+}
 
 

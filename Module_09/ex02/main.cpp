@@ -10,19 +10,20 @@ bool isNumeric(std::string str) {
 }
 
 int main(int ac, char **av) {
-
-
 	PmergeMe a;
 	for (int i = 1; i < ac; i++)
 	{
 		if(isNumeric(av[i]))
+		{
+			if (std::stod(av[i]) > 2147483647)
+				return (std::cout<<"Error"<<std::endl, 0);
 			a.add(std::stoi(av[i]));
+		}	
 		else
-			return 0;
+			return (std::cout<<"Error"<<std::endl, 0);
 	}
 	a.sort_vec();
 	a.sort_deq();
-	
 
     return 0;
 }
