@@ -33,15 +33,24 @@ void RPN::calculate()
 	
 	if (check_errors(op))
 		return ;
+
+	// if (op.size() == 1)
+	// {
+	// 	std::cout << op << std::endl;
+	// 	return ;
+	// }
+
+	std::string to_p = "";
 	for (int i = 0; op[i]; i++)
 	{
 		if (op[i] == ' ')
-			continue;
+		{
+			myStack.push(std::stod(to_p));
+			to_p = "";
+		}
 		if (std::isdigit(op[i]))
 		{
-			int to_push = static_cast<int>(op[i]) - 48;
-			myStack.push(to_push);
-
+			to_p += static_cast<int>(op[i]) - 48;
 		}
 		else if (myStack.size() >= 2)
 		{
@@ -58,6 +67,8 @@ void RPN::calculate()
 			myStack.pop();
 			myStack.push(result);
 		}
+		else
+			return;
 	}
 
 	std::cout << result << "\n";
@@ -66,4 +77,15 @@ void RPN::calculate()
 RPN::~RPN()
 {
 
+}
+
+RPN::RPN(const RPN &rhs)
+{
+	this->expr = rhs.expr;
+}
+
+RPN & RPN::operator=(const RPN &rhs) 
+{
+	this->expr = rhs.expr;
+    return (*this); 
 }

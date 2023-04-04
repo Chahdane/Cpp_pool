@@ -8,5 +8,7 @@ class RPN
 	public:
 		void calculate();
 		RPN(std::string expr);
+		RPN(const RPN &rhs);
+        RPN &operator=(const RPN &rhs);
 		~RPN();
 };
