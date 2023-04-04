@@ -15,12 +15,29 @@ int is_operation(char c)
 
 int check_errors(std::string expr)
 {
-	if (!std::isdigit(expr[0]))
-			return (1);	
-	for (int i = 1; expr[i]; i+=2)
+	int dg , op= 0;
+	int i = 1;
+	if (!isdigit(expr[0]) || !isdigit(expr[1]))
+		return 1;
+	while (expr[i])
 	{
-		if (!std::isdigit(expr[i]) && !is_operation(expr[i + 1]) && expr[i + 2] != ' ')
-			return (1);	
+		dg = 0;
+		op = 0;
+		for (int x = i; isdigit(expr[x]) || expr[i] == ' '; x++)
+			if (isdigit(expr[x]))
+				dg++;
+		for (int j = i + dg; is_operation(expr[j]) || expr[i] == ' ' ; j++)
+		{
+			if (is_operation(expr[j]))
+				op++;
+		}
+		if (dg != op)
+		{
+			std::cout << "UNVALID" <<std::endl;
+			return 1;
+		}
+		i += dg;
+		i += op;
 	}
 	return 0;
 }
@@ -29,30 +46,25 @@ void RPN::calculate()
 {
 	std::stack<int> myStack;
 	std::string op = expr;
-	int result;
-	
+	float result;
+
+	if (op.size() == 1 && isdigit(op[0]))
+	{
+		std::cout << op << std::endl;
+		return ;
+	}	
 	if (check_errors(op))
 		return ;
-
-	// if (op.size() == 1)
-	// {
-	// 	std::cout << op << std::endl;
-	// 	return ;
-	// }
-
-	std::string to_p = "";
 	for (int i = 0; op[i]; i++)
 	{
 		if (op[i] == ' ')
-		{
-			myStack.push(std::stod(to_p));
-			to_p = "";
-		}
+			continue;
 		if (std::isdigit(op[i]))
 		{
-			to_p += static_cast<int>(op[i]) - 48;
+			int to_push = static_cast<int>(op[i]) - 48;
+			myStack.push(to_push);
 		}
-		else if (myStack.size() >= 2)
+		else if (myStack.size() >= 2 && is_operation(op[i]))
 		{
 			result = myStack.top();
 			myStack.pop();
@@ -63,15 +75,12 @@ void RPN::calculate()
 			if (op[i] == '*')
 				result *= myStack.top();
 			if (op[i] == '/')
-				result /= myStack.top();
+				result = myStack.top() / result;
 			myStack.pop();
 			myStack.push(result);
 		}
-		else
-			return;
 	}
-
-	std::cout << result << "\n";
+	std::cout << result << std::endl;
 }
 
 RPN::~RPN()
