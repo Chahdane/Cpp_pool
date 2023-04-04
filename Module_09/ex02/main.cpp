@@ -10,6 +10,8 @@ bool isNumeric(std::string str) {
 }
 
 int main(int ac, char **av) {
+	if (ac < 2)
+		return 1;
 	PmergeMe a;
 	for (int i = 1; i < ac; i++)
 	{
@@ -22,6 +24,7 @@ int main(int ac, char **av) {
 		else
 			return (std::cout<<"Error"<<std::endl, 0);
 	}
+	
 	a.sort_vec();
 	a.sort_deq();
 
