@@ -2,7 +2,7 @@
 using namespace std;
 
 
-PmergeMe::PmergeMe(/* args */)
+PmergeMe::PmergeMe()
 {
 }
 
@@ -13,7 +13,7 @@ PmergeMe::~PmergeMe()
 void PmergeMe::add(int num)
 {
 	vec.push_back(num);
-    deq.push_back(num);
+    deq.push_front(num);
 }
 
 
@@ -22,11 +22,11 @@ void insertion_sort(container& nums, int left, int right) {
     for (int i = left + 1; i <= right; ++i) {
         int key = nums[i];
         int j = i - 1;
-        while (j >= left && nums[j] > key) {
+        while (j >= left && key < nums[j]) {
             nums[j + 1] = nums[j];
+			nums[j] = key;
             --j;
         }
-        nums[j + 1] = key;
     }
 }
 
@@ -65,12 +65,11 @@ void print_con(container& nums)
 	for(size_t i = 0; i < nums.size(); i++)
 	{
 		std::cout << nums[i] << " ";
-		if (i == 9) break;
+		if (i == 19) break;
 	}
 		
-	if (nums.size() > 10)
+	if (nums.size() > 20)
 		std::cout << " [...]" << std::endl;
-	std::cout << std::endl;
 }
 
 template<typename container>

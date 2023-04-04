@@ -3,13 +3,6 @@
 #include <fstream>
 #include <map>
 
-
-struct Data {
-    std::string date;
-    std::string value;
-};
-
-
 class BitcoinExchange
 {
 	private:
@@ -18,6 +11,8 @@ class BitcoinExchange
 		std::map<std::string, std::string>* data;
 	public:
 		BitcoinExchange(std::string file_name, bool is_input_file);
+		BitcoinExchange(const BitcoinExchange &rhs);
+        BitcoinExchange &operator=(const BitcoinExchange &rhs);
 		void parse_file();
 		void print_data();
 		std::map<std::string, std::string>* get_map();
