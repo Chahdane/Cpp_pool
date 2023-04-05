@@ -4,11 +4,9 @@
 #include "RPN.hpp"
 
 
-
 int main(int ac, char **av) {
-	// if (ac != 2)
-	// 	return 1;
-	(void)ac;
+	if (ac != 2)
+		return 1;
 	std::string out;
 	std::string a = av[1];
 	 for (size_t i = 0; i < a.length(); i++) {

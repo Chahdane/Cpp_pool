@@ -2,7 +2,6 @@
 
 RPN::RPN(std::string expr)
 {
-	//std::cout << expr << "\n";
 	this->expr = expr;
 }
 
@@ -57,8 +56,6 @@ void RPN::calculate()
 		return ;
 	for (int i = 0; op[i]; i++)
 	{
-		if (op[i] == ' ')
-			continue;
 		if (std::isdigit(op[i]))
 		{
 			int to_push = static_cast<int>(op[i]) - 48;

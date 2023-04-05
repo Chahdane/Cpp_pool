@@ -1,6 +1,4 @@
 #include "PmergeMe.hpp"
-using namespace std;
-
 
 PmergeMe::PmergeMe()
 {
@@ -39,7 +37,7 @@ void merge_insertion_sort(container& nums, int left, int right) {
     int mid = left + (right - left) / 2;
     merge_insertion_sort(nums, left, mid);
     merge_insertion_sort(nums, mid + 1, right);
-    vector<int> temp(right - left + 1);
+    std::vector<int> temp(right - left + 1);
     int i = left, j = mid + 1, k = 0;
     while (i <= mid && j <= right) {
         if (nums[i] < nums[j]) {
